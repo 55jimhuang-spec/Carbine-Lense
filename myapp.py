@@ -1,5 +1,7 @@
 import flet as ft
+import os
 
+IMG_PATH = os.path.expanduser("~/Desktop/Carbine Lense/resorce/logo.png")
 
 def home_page(page: ft.Page):
     text = ft.Text("Hello, User!")
@@ -31,12 +33,18 @@ def main_page(page: ft.Page):
     async def go_home(e):
         await page.push_route("/")
 
-    return [
-        ft.Text("Hello, User!"),
+    
+    return[
+    ft.Column(
+    [
+        ft.Image(src=IMG_PATH, width=200, height=200, border_radius=8),
+        ft.Text("Hello, User!", size=18),
         ft.Text("xxxxxxxxxxx"),
         ft.FilledButton("back to home", on_click=go_home),
+    ],
+    spacing=12
+    )
     ]
-
 
 def main(page: ft.Page):
     page.title = "My App"
