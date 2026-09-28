@@ -46,7 +46,10 @@ def main(page: ft.Page):
         page.update()
 
     page.on_route_change = route_change
-    page.push_route("/")
+
+    # 先手动加载一次首页，防止 on_route_change 没有触发
+    page.add(*home_page(page))
+    page.update()
 
 
 ft.run(main)
