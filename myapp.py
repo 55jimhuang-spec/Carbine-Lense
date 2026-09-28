@@ -3,9 +3,11 @@ import os
 
 IMG_PATH = os.path.expanduser("~/Desktop/Carbine Lense/resorce/logo.png")
 IMG_PATH2 = os.path.expanduser("~/Desktop/Carbine Lense/resorce/school.png")
+IMG_PATH3 = os.path.expanduser("~/Desktop/Carbine Lense/resorce/CARBINELense.png")
 
 def home_page(page: ft.Page):
-    text = ft.Text("Hello, User!")
+    ft.Text("Carbine Lense", color="black", size=50),
+    
 
     def on_click(e):
         text.value = "You clicked the button!"
@@ -22,10 +24,29 @@ def home_page(page: ft.Page):
         await page.push_route("/info")
 
     return [
-        text,
-        ft.FilledButton("Information", on_click=go_info),
-        ft.FilledButton("About this app", on_click=go_app),
-        ft.FilledButton("About the maker", on_click=on_click_2),
+        ft.Row(
+    [
+        ft.Image(src=IMG_PATH3, width=60, height=60, border_radius=0),
+        ft.Text("Carbine", color="green", size=50),
+        ft.Text("Lense", color="blue", size=50),
+    ],
+    spacing=8
+),
+        ft.FilledButton("Information",
+                        on_click=go_info,
+                        bgcolor="#2E4AFF",
+                        color="#000000",
+                        ),
+        ft.FilledButton("About this app",
+                        on_click=go_app,
+                        bgcolor="#FFFFFF",
+                        color="#000000",
+                        ),
+        ft.FilledButton("About the maker",
+                        on_click=on_click_2,
+                        bgcolor="blue",
+                        color="#FFFFFF",
+                        ),
     ]
 
 
@@ -71,7 +92,7 @@ def app(page: ft.Page):
 
 
 def main(page: ft.Page):
-    page.title = "My App"
+    page.title = "Carbine Lense"
 
     def route_change(e):
         page.controls.clear()
