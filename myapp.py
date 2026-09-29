@@ -8,20 +8,14 @@ IMG_PATH3 = os.path.expanduser("~/Desktop/Carbine Lense/resorce/CARBINELense.png
 def home_page(page: ft.Page):
     ft.Text("Carbine Lense", color="black", size=50),
     
-
-    def on_click(e):
-        text.value = "You clicked the button!"
-        page.update()
-
-    def on_click_2(e):
-        text.value = "You clicked the button2!"
-        page.update()
-
     async def go_app(e):
         await page.push_route("/app")
 
     async def go_info(e):
         await page.push_route("/info")
+
+    async def go_maker(e):
+            await page.push_route("/people")
 
     return [
         ft.Row(
@@ -43,7 +37,7 @@ def home_page(page: ft.Page):
                         color="#000000",
                         ),
         ft.FilledButton("About the maker",
-                        on_click=on_click_2,
+                        on_click=go_maker,
                         bgcolor="blue",
                         color="#FFFFFF",
                         ),
