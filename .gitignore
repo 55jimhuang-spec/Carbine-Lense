@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# PyInstaller 构建产物
+build/
+dist/
+*.spec
+
+# Python 缓存
+__pycache__/
+*.pyc
